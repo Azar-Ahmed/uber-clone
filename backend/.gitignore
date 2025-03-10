@@ -1,0 +1,50 @@
+### Node.js ###
+node_modules/
+npm-debug.log
+yarn-error.log
+
+### Environment Variables ###
+.env
+
+### Logs ###
+logs/
+*.log
+log/
+*.tlog
+
+### Build ###
+dist/
+build/
+
+### Database ###
+*.sqlite
+*.sqlite3
+*.db
+*.pdb
+*.db-journal
+*.sql
+
+### Temporary Files ###
+*.tmp
+*.swp
+*.swo
+*.swn
+.DS_Store
+Thumbs.db
+
+### IDE and Editor Files ###
+.vscode/
+.idea/
+*.iml
+*.sublime*
+
+### Docker ###
+.dockerignore
+
+### Misc ###
+coverage/
+*.pid
+
+### Custom ###
+uploads/
+public/uploads/
