@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import express, { urlencoded } from 'express'
 import cors from 'cors'
+import cookieParser from 'cookie-parser'
 import connectToDB from './config/db.js'
 dotenv.config();
 import userRoutes from './routes/user.route.js'
@@ -15,6 +16,7 @@ connectToDB();
 app.use(cors());
 app.use(express.json())
 app.use(urlencoded({extended: true}))
+app.use(cookieParser())
 
 // Routes
 app.get('/', (req, res)=>{
