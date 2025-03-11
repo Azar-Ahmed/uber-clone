@@ -229,3 +229,62 @@ This endpoint is used to log out the authenticated user.
 ### Notes
 - Ensure that the Authorization header is provided with a valid token.
 - The token will be added to a blacklist to prevent further use.
+
+## API Endpoints
+
+### Captain Endpoints
+
+#### Register a new captain
+
+**POST** `/api/captain/register`
+
+**Body Parameters:**
+- `email` (String): Email of the captain.
+- `fullName` (Object): Full name of the captain.
+  - `firstName` (String): First name of the captain.
+  - `lastName` (String): Last name of the captain.
+- `password` (String): Password of the captain.
+- `vehicle` (Object): Vehicle details of the captain.
+  - `color` (String): Color of the vehicle.
+  - `plate` (String): Plate number of the vehicle.
+  - `capacity` (Number): Capacity of the vehicle.
+  - `vehicleType` (String): Type of the vehicle.
+
+**Success Response:**
+- `201 Created`
+- `captain` (Object): Registered captain details.
+
+#### Login a captain
+
+**POST** `/api/captain/login`
+
+**Body Parameters:**
+- `email` (String): Email of the captain.
+- `password` (String): Password of the captain.
+
+**Success Response:**
+- `200 OK`
+- `token` (String): Authentication token.
+- `captain` (Object): Logged in captain details.
+
+#### Get captain profile
+
+**GET** `/api/captain/profile`
+
+**Headers:**
+- `Authorization` (String): Bearer token.
+
+**Success Response:**
+- `200 OK`
+- `captain` (Object): Captain profile details.
+
+#### Logout a captain
+
+**GET** `/api/captain/logout`
+
+**Headers:**
+- `Authorization` (String): Bearer token.
+
+**Success Response:**
+- `200 OK`
+- `message` (String): Logout success message.
