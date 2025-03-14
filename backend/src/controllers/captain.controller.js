@@ -31,10 +31,14 @@ export const registerCaptain = async (req, res, next) => {
       vehicleType: vehicle.vehicleType,
     });
 
+
+    const token = captain.generateAuthToken();
+    res.cookie('token', token);
+
     // Convert to plain object and remove password
     const captainObject = captain.toObject();
     delete captainObject.password;
-    res.status(201).json({ captain: captainObject });
+    res.status(201).json({ token, captain: captainObject });
   } catch (error) {
     console.error("Login Error:", error);
     res.status(500).json({

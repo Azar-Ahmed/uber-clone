@@ -26,12 +26,13 @@ export const registerUser = async (req, res, next) => {
       password: hashedPassword,
     });
 
-    // const token = user.generateAuthToken();
+    const token = user.generateAuthToken();
+    res.cookie('token', token);
 
     // Convert to plain object and remove password
     const userObject = user.toObject();
     delete userObject.password;
-    res.status(201).json({ user: userObject });
+    res.status(201).json({ token, user: userObject });
   } catch (error) {
     console.error("Login Error:", error);
     res
